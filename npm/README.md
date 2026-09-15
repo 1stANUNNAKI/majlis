@@ -1,31 +1,29 @@
 <div align="center">
 
-[![العربية](https://img.shields.io/badge/العربية-الدليل_الكامل-green?style=for-the-badge)](USAGE_AR.md)
-[![English](https://img.shields.io/badge/English-Full_Guide-blue?style=for-the-badge)](USAGE_EN.md)
-[![中文](https://img.shields.io/badge/中文-完整指南-red?style=for-the-badge)](USAGE_ZH.md)
+[![العربية - الدليل الكامل](https://img.shields.io/badge/%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-%D8%A7%D9%84%D8%AF%D9%84%D9%8A%D9%84_%D8%A7%D9%84%D9%83%D8%A7%D9%85%D9%84-brightgreen?style=for-the-badge)](USAGE_AR.md)
+[![ENGLISH FULL GUIDE](https://img.shields.io/badge/ENGLISH-FULL_GUIDE-blue?style=for-the-badge)](USAGE_EN.md)
+[![中文 完整指南](https://img.shields.io/badge/%E4%B8%AD%E6%96%87-%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97-red?style=for-the-badge)](USAGE_ZH.md)
 
 # 🏛️ MAJLIS · The Council — المجلس
 
-### **One mind. Every tool.** — عقلٌ واحد في كل أدواتك — 一个大脑，贯通所有工具
+### **One mind. Every tool. — عقلٌ واحد في كل أدواتك — 一个大脑，贯通所有工具**
 
-![Version](https://img.shields.io/badge/version-9.2.0-gold)
+![Version](https://img.shields.io/badge/version-9.3.0-gold)
 ![Agents](https://img.shields.io/badge/real_agents-40-3ddc97)
 ![Skills](https://img.shields.io/badge/skills-90_trilingual-e8b64c)
-![Platforms](https://img.shields.io/badge/platforms-30+-7c9eff)
-![Audit](https://img.shields.io/badge/integrity-1702%2F0_pass-brightgreen)
+![Platforms](https://img.shields.io/badge/platforms-26+-7c9eff)
+![Audit](https://img.shields.io/badge/integrity-1728%2F0_pass-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
-**A disciplined council of 40 real agents and 90 curated skills —
-installed with one command into OpenCode, Claude Code, Codex, Gemini CLI and 26+ more platforms.
-Nothing ships without test evidence and a green security gate.**
+**A disciplined council of 40 real agents and 90 curated skills — installed with one command into OpenCode, Claude Code, Codex, Gemini CLI and 26+ more platforms. Nothing ships without test evidence and a green security gate.**
 
-`pnpm dlx majlis-council --all`  *(or: `npx majlis-council --all`)*
+`pnpm dlx majlis-council --all` &nbsp; *(or: `npx majlis-council --all`)*
 
 </div>
 
 ---
 
-## 📑 Table of Contents
+## 📖 Table of Contents
 [Install](#-installation) · [Council](#-the-council-of-forty) · [Commands](#-six-governing-commands) · [Pipeline](#-the-pipeline) · [Skills](#-skills-90--trilingual) · [Security](#-the-red-gate) · [Self-Heal](#-self-healing-updates) · [Platforms](#-platforms) · [Publish](#-publish-your-own-copy) · [Integrity](#-integrity)
 
 ---
@@ -48,7 +46,7 @@ Nothing ships without test evidence and a green security gate.**
 
 | Division | Members |
 |---|---|
-| 🧭 **Command & Strategy** | `@hadi-core` · `@hadi-maestro` · `@product-shaper` |
+| 👑 **Command & Strategy** | `@hadi-core` · `@hadi-maestro` · `@product-shaper` |
 | 🔍 **Recon & Risk** | `@rased-explorer` · `@risk-assessor` · `@incident-detective` |
 | ⚙️ **Engineering** | `@emad-api-shield` · `@data-modeler` · `@integrative-architect` · `@stream-partitioner` · `@dep-manager` · `@cicd-automator` · `@sandbox-isolator` · `@motion-coder` · `@data-engineer` · `@release-manager` |
 | 🛡️ **Quality & Security** | `@sareem-security` · `@baher-qa` · `@nadif-clean-code` · `@code-polisher` · `@test-engineer` · `@perf-auditor` · `@a11y-auditor` |
@@ -57,7 +55,7 @@ Nothing ships without test evidence and a green security gate.**
 
 ---
 
-## 🕹️ Six Governing Commands
+## ⚡ Six Governing Commands
 
 Native per platform — OpenCode `/majlis-start` · Claude `/majlis-start` · Codex `/prompts:majlis-start` · Gemini `/majlis:start` · elsewhere: *"run majlis start"*.
 
@@ -110,7 +108,7 @@ flowchart LR
 
 ---
 
-## 🧩 Skills (90 · Trilingual)
+## 🧠 Skills (90 · Trilingual)
 
 > Every skill with **English · العربية · 中文** descriptions → **[SKILLS_CATALOG.md](SKILLS_CATALOG.md)**
 
@@ -127,7 +125,7 @@ Invoke: OpenCode/Claude auto-discover · Codex `$skill-name` · others: read `SK
 
 ---
 
-## 🛡️ The Red Gate
+## 🚨 The Red Gate
 
 The signature nobody else ships: an **offensive security pipeline before every delivery** —
 `TruffleHog` secrets sweep → `Nuclei` config exposure → `OWASP ZAP` API defenses → human-grade audit → binary verdict.
@@ -135,7 +133,7 @@ The signature nobody else ships: an **offensive security pipeline before every d
 
 ---
 
-## 🔁 Self-Healing Updates
+## 🔄 Self-Healing Updates
 
 Edit package → bump `VERSION.txt` → next OpenCode launch redeploys **all platforms in ~0.5s, silently**.
 Damaged installs repair themselves. Log: `~/.config/opencode/.majlis_bootstrap.log`.
@@ -152,7 +150,7 @@ Damaged installs repair themselves. Log: `~/.config/opencode/.majlis_bootstrap.l
 
 ---
 
-## 📤 Publish your own copy
+## 🚀 Publish your own copy
 
 ```bash
 cd npm
@@ -165,14 +163,14 @@ pnpm publish       # (or: npm publish) -> world runs: pnpm dlx majlis-council --
 ## ✅ Integrity
 
 Automated reality-check (source + 4 deploy targets + landing references):
-**1702 checks passing — 0 failures.** Rerun anytime: `node eval/run.js`
+**1728 checks passing · 0 failures.** Rerun anytime: `node eval/run.js`
 
 ---
 
 <div align="center">
 
-**MIT** · 🏛️ Majlis Council · *Hunt first. Ship clean.* · يصطاد أولاً، يسلّم نقيّاً
+**MIT** · 🏛️ Majlis Council · *Hunt first. Ship clean.* · اصطد أولاً، وانشر نقياً
 
-[⭐ Star this repo](https://github.com/1stANUNNAKI/The-Council) if the Council serves you well
+[⭐ Star this repo](https://github.com/1stANUNNAKI/majlis) if the Council serves you well
 
 </div>
