@@ -9,6 +9,9 @@ permission:
   edit: deny
   bash:
     "*": ask
+    "pnpm test*": allow
+    "pnpm run lint*": allow
+    "pnpm run *": allow
     "npm test*": allow
     "npm run lint*": allow
     "npx tsc*": allow

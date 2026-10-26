@@ -1,6 +1,6 @@
 {
   "name": "majlis-council",
-  "version": "9.3.0",
+  "version": "9.4.0",
   "description": "MAJLIS - The Council: one command installs a disciplined council of 40 real AI agents + 90 curated trilingual skills into OpenCode, Claude Code, Codex, Gemini CLI and 26+ more platforms. Mandatory QA/security gates. MIT.",
   "license": "MIT",
   "type": "commonjs",

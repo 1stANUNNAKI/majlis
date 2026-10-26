@@ -1,0 +1,219 @@
+{
+  "version": "2.0.0",
+  "updated_at": "2026-09-14T09:20:00+03:00",
+  "description": "السجل البرمجي الحي والتراكمي للأنماط المعمارية - المجلس (The Living Archetype Registry)",
+  "generative_axes": {
+    "spatial_architecture": [
+      { "id": "split_timeline", "name": "مسار زمني طولي منقسم", "name_en": "Split Vertical Timeline", "desc": "توزيع متسلسل على محور زمني يربط القصة بالمنتج" },
+      { "id": "bento_matrix", "name": "شبكة بنتو كفاءاتية متعددة المقاييس", "name_en": "Bento Grid Matrix", "desc": "كتل شبكية متباينة الأبعاد بنسب ذهبية ومعلومات مكثفة" },
+      { "id": "panoramic_3d_stage", "name": "مسرح بانورامي ثلاثي الأبعاد", "name_en": "3D WebGL Panoramic Stage", "desc": "مسرح كامل العرض 100vw يتصدره مجسم 3D تفاعلي حقيقي" },
+      { "id": "swiss_monolith", "name": "مينيمالي سويسري أحادي العمود", "name_en": "Monolithic Swiss Column", "desc": "هيكل عمودي صارم، مساحات بيضاء شاسعة، وتيبوغرافيا عملاقة" },
+      { "id": "radial_botanics", "name": "أقراص مدارية حيوية متداخلة", "name_en": "Radial Botanical Orbits", "desc": "توزيع عضوي دائري يحاكي الطبيعة والمواسم" },
+      { "id": "obsidian_vault", "name": "خزينة البطاقات العائمة الداكنة", "name_en": "Obsidian Floating Vault", "desc": "طبقات زجاجية مدخنة داكنة تعكس أضواء الماوس" },
+      { "id": "tactile_neumorphic", "name": "منصة أزرار لمسية ناعمة", "name_en": "Soft Tactile Neumorphic Deck", "desc": "أسطح بارزة ومحفورة بظلال ناعمة وإحساس ملموس" },
+      { "id": "editorial_collage", "name": "كولاج مجلة تحريرية فنية", "name_en": "Editorial Artistic Collage", "desc": "تراكب لامتناظر للصور والنصوص مع أختام وهوامش" },
+      { "id": "telemetry_hud", "name": "شاشة قياس وتحليل مخبري", "name_en": "Biotech Telemetry HUD", "desc": "واجهة بيانات مخبرية دقيقة برسم بياني ومؤشرات حساسة" },
+      { "id": "woodcut_ledger", "name": "دفتر سجل حرفي بنقوش تراثية", "name_en": "Artisan Woodcut Ledger", "desc": "طابع المخطوطات القديمة وأختام الشمع وتواقيع النحالين" }
+    ],
+    "kinetic_physics": [
+      { "id": "threejs_orbit", "name": "مجسم 3D بمدار تدوير فيزيائي", "name_en": "Three.js 3D Orbit Drag" },
+      { "id": "magnetic_spring", "name": "أزرار مغناطيسية تتجاذب مع الماوس", "name_en": "Magnetic Spring Buttons" },
+      { "id": "radial_spotlight", "name": "هالة ضوئية شعاعية تتبع المؤشر", "name_en": "Radial Cursor Spotlight" },
+      { "id": "horizontal_momentum", "name": "شريط أفقي انسيابي بالسحب", "name_en": "Momentum Horizontal Track" },
+      { "id": "staggered_reveal", "name": "كشف إيقاعي تصاعدي للعناصر", "name_en": "Staggered Fluid Cascades" },
+      { "id": "haptic_press", "name": "ارتداد غائر وملموس عند النقر", "name_en": "Haptic Depth Indentation" },
+      { "id": "ambient_waveforms", "name": "تموجات سائلة تفاعلية في الخلفية", "name_en": "Interactive Canvas Fluid Waves" }
+    ],
+    "chroma_atmosphere": [
+      { "id": "royal_gold_parchment", "name": "ورق عتيق دافئ مع برونز وعسل", "bg": "#f9f6f0", "fg": "#1a1714", "accent": "#b8860b" },
+      { "id": "dark_slate_bento", "name": "رمادي حديدي غامق مع كهرمان مضيء", "bg": "#0d1117", "fg": "#f0f6fc", "accent": "#f59e0b" },
+      { "id": "pure_pitch_black", "name": "سواد كوني مطلق مع زجاج متبلور", "bg": "#030406", "fg": "#ffffff", "accent": "#eab308" },
+      { "id": "stark_monochrome", "name": "أبيض وأسود سويسري عالي التباين", "bg": "#000000", "fg": "#ffffff", "accent": "#ffffff" },
+      { "id": "deep_forest_botanic", "name": "أخضر غابي عميق مع طين عضوي", "bg": "#0c1510", "fg": "#e2e8f0", "accent": "#10b981" },
+      { "id": "obsidian_gold_vault", "name": "أوبسيديان داكن مع خيوط ذهبية", "bg": "#07080a", "fg": "#f8fafc", "accent": "#fbbf24" },
+      { "id": "soft_clay_tactile", "name": "طين رمادي ناعم وظلال مزدوجة", "bg": "#e6ecf0", "fg": "#1e293b", "accent": "#d97706" },
+      { "id": "parchment_editorial", "name": "بيج صحفي دافئ مع حبر كلاسيكي", "bg": "#f5eedc", "fg": "#261d15", "accent": "#92400e" },
+      { "id": "clinical_navy_hud", "name": "كحلي مخبري سيان مع خطوط ليزر", "bg": "#07111e", "fg": "#38bdf8", "accent": "#0ea5e9" },
+      { "id": "vintage_papyrus", "name": "بردي أثري مع شمع أحمر قرمزي", "bg": "#ede3cb", "fg": "#2a1c0d", "accent": "#991b1b" }
+    ],
+    "typography_personality": [
+      { "id": "royal_amiri_serif", "title_ar": "Amiri Serif", "body_ar": "Tajawal", "vibe": "فخامة تراثية ملكية" },
+      { "id": "modern_jakarta_sans", "title_ar": "Plus Jakarta Sans", "body_ar": "Inter", "vibe": "حداثة تقنية سريعة" },
+      { "id": "cinematic_sora", "title_ar": "Sora Geometric", "body_ar": "Plus Jakarta Sans", "vibe": "سينمائية مستقبلية غامرة" },
+      { "id": "swiss_inter_tight", "title_ar": "Inter Tight Bold", "body_ar": "Inter", "vibe": "وضوح سويسري صارم" },
+      { "id": "technical_jetbrains_mono", "title_ar": "JetBrains Mono", "body_ar": "Courier New", "vibe": "دقة مخبرية برمجية" },
+      { "id": "classical_cormorant", "title_ar": "Cinzel / Cormorant", "body_ar": "Marcellus", "vibe": "رقي المجوهرات والمتاحف" }
+    ],
+    "narrative_flow": [
+      { "id": "origin_chronicle", "name": "سردية الأصول والرحلة الجغرافية" },
+      { "id": "empirical_proof", "name": "الإثبات المخبري والبيانات الموثقة" },
+      { "id": "sensory_immersion", "name": "الانغماس الحسي والتذوق الفيزيائي" },
+      { "id": "monolithic_direct", "name": "المباشرة التجارية بدون تشويش" },
+      { "id": "craft_legacy", "name": "إرث الصنعة وتوارث الأجيال" }
+    ]
+  },
+  "archetypes": [
+    {
+      "code": "ARCH-01",
+      "name_ar": "التراث الملكي النخبوي",
+      "name_en": "Royal Heritage Editorial",
+      "axes": {
+        "spatial": "split_timeline",
+        "kinetic": "magnetic_spring",
+        "chroma": "royal_gold_parchment",
+        "typography": "royal_amiri_serif",
+        "narrative": "origin_chronicle"
+      },
+      "tags": ["تراثي", "ملكي", "فاخر", "سردي", "أودية"],
+      "benchmark_reference": "Aesop / Siteinspire Editorial",
+      "key_sections": ["Hero Split Screen", "مسار فصول قطف العسل", "خريطة الأودية التفاعلية", "وثيقة التصدير الملكي"]
+    },
+    {
+      "code": "ARCH-02",
+      "name_ar": "شبكة البنتو الكفاءاتية الذكية",
+      "name_en": "Kinetic Bento Grid Matrix",
+      "axes": {
+        "spatial": "bento_matrix",
+        "kinetic": "staggered_reveal",
+        "chroma": "dark_slate_bento",
+        "typography": "modern_jakarta_sans",
+        "narrative": "empirical_proof"
+      },
+      "tags": ["تقني", "بنتو", "كفاءة", "بيانات", "مصفوفة"],
+      "benchmark_reference": "Bento Grids / Raycast",
+      "key_sections": ["Bento Master Grid", "حاسبة النقاء الإنزيمي الحية", "مؤشر الرطوبة التفاعلي", "كاميرا الخلية الحية"]
+    },
+    {
+      "code": "ARCH-03",
+      "name_ar": "المسرح السينمائي 3D التفاعلي",
+      "name_en": "True 3D WebGL Canvas Stage",
+      "axes": {
+        "spatial": "panoramic_3d_stage",
+        "kinetic": "threejs_orbit",
+        "chroma": "pure_pitch_black",
+        "typography": "cinematic_sora",
+        "narrative": "sensory_immersion"
+      },
+      "tags": ["3D", "WebGL", "Three.js", "تفاعلي", "سينمائي"],
+      "benchmark_reference": "Apple Showcase / Awwwards SOTD",
+      "key_sections": ["مسرح 3D 100vw حقيقي", "نافذة تفكيك المجسم", "متحكم الإضاءة والزاوية", "بطاقات المواصفات المحيطية"]
+    },
+    {
+      "code": "ARCH-04",
+      "name_ar": "المينيمالي السويسري الصريح",
+      "name_en": "Pure Swiss Architectural Minimal",
+      "axes": {
+        "spatial": "swiss_monolith",
+        "kinetic": "horizontal_momentum",
+        "chroma": "stark_monochrome",
+        "typography": "swiss_inter_tight",
+        "narrative": "monolithic_direct"
+      },
+      "tags": ["سويسري", "مينيمالي", "أحادي العمود", "جريء", "أبيض وأسود"],
+      "benchmark_reference": "Minimal Gallery / Swiss Style",
+      "key_sections": ["عنوان H1 عملاق 12vw", "شريط ماركي انسيابي", "جدول مواصفات خطي صارم", "زر طلب أحادي مباشر"]
+    },
+    {
+      "code": "ARCH-05",
+      "name_ar": "الطبيعة العضوية الحية",
+      "name_en": "Raw Earth Botanics & Fluid Wave",
+      "axes": {
+        "spatial": "radial_botanics",
+        "kinetic": "ambient_waveforms",
+        "chroma": "deep_forest_botanic",
+        "typography": "modern_jakarta_sans",
+        "narrative": "origin_chronicle"
+      },
+      "tags": ["عضوي", "طبيعي", "أمواج", "نباتي", "أخضر غابي"],
+      "benchmark_reference": "Godly Fluid Dynamics",
+      "key_sections": ["أقراص التربة الحيوية", "تقويم إزهار زهور السدر", "موجات الكانفاس الحية", "مصفوفة النحل البري"]
+    },
+    {
+      "code": "ARCH-06",
+      "name_ar": "الخزينة الليلية والزجاج المدخن",
+      "name_en": "Obsidian Vault Luxury",
+      "axes": {
+        "spatial": "obsidian_vault",
+        "kinetic": "radial_spotlight",
+        "chroma": "obsidian_gold_vault",
+        "typography": "classical_cormorant",
+        "narrative": "sensory_immersion"
+      },
+      "tags": ["أوبسيديان", "زجاج مدخن", "هالة ماوس", "مجوهرات", "فاخر"],
+      "benchmark_reference": "Linear / Dark Mode Design",
+      "key_sections": ["بطاقات زجاجية ثلاثية الأبعاد بظل ضوئي", "درج فتح الصندوق الفاخر", "متحكم الإضاءة بالماوس", "سجل ندرة الدفعة"]
+    },
+    {
+      "code": "ARCH-07",
+      "name_ar": "الأزرار اللمسية الناعمة",
+      "name_en": "Soft Tactile Neumorphic Deck",
+      "axes": {
+        "spatial": "tactile_neumorphic",
+        "kinetic": "haptic_press",
+        "chroma": "soft_clay_tactile",
+        "typography": "modern_jakarta_sans",
+        "narrative": "sensory_immersion"
+      },
+      "tags": ["نيومورفيزم", "ملموس", "أزرار غائرة", "حسي", "طين ناعم"],
+      "benchmark_reference": "Hoverstat.es Tactile UI",
+      "key_sections": ["لوحة تحكم فيزيائية", "منزلق لزوجة حركي", "أزرار ناعمة بظلال مزدوجة", "حاسبة الجرامات اليومية"]
+    },
+    {
+      "code": "ARCH-08",
+      "name_ar": "المجلة التحريرية الفنية المتداخلة",
+      "name_en": "Artistic Collage Magazine",
+      "axes": {
+        "spatial": "editorial_collage",
+        "kinetic": "staggered_reveal",
+        "chroma": "parchment_editorial",
+        "typography": "royal_amiri_serif",
+        "narrative": "craft_legacy"
+      },
+      "tags": ["مجلة", "كولاج", "تحريري", "فوتوغرافي", "طبقات متراكبة"],
+      "benchmark_reference": "Siteinspire Magazine Art",
+      "key_sections": ["مقال مصور متراكب", "اقتباسات النحالين العريضة", "معرض صور مائلة بأبعاد حرة", "هوامش تاريخية جانبية"]
+    },
+    {
+      "code": "ARCH-09",
+      "name_ar": "المختبر الطيفي العلمي",
+      "name_en": "Clinical Biotech Laboratory HUD",
+      "axes": {
+        "spatial": "telemetry_hud",
+        "kinetic": "radial_spotlight",
+        "chroma": "clinical_navy_hud",
+        "typography": "technical_jetbrains_mono",
+        "narrative": "empirical_proof"
+      },
+      "tags": ["مختبر", "بيانات حية", "تليمترية", "أطياف", "كروماتوغرافيا"],
+      "benchmark_reference": "Stripe Telemetry / Vercel Metrics",
+      "key_sections": ["رسم كروماتوغرافي للأحماض الفينولية", "قراءات حساسات الخلية الحية", "إحداثيات GPS للمنحل", "باركود البلوكتشين التوثيقي"]
+    },
+    {
+      "code": "ARCH-10",
+      "name_ar": "الورشة الحرفية والطباعة الخشبية",
+      "name_en": "Artisan Woodcut Craft",
+      "axes": {
+        "spatial": "woodcut_ledger",
+        "kinetic": "magnetic_spring",
+        "chroma": "vintage_papyrus",
+        "typography": "royal_amiri_serif",
+        "narrative": "craft_legacy"
+      },
+      "tags": ["حرفي", "نقش خشبي", "ختم شمع", "أثري", "مخطوطة"],
+      "benchmark_reference": "Library of Congress Rare Book Design",
+      "key_sections": ["دفتر السجل الحرفي المؤرخ", "أختام الشمع الأحمر الرقمية", "خريطة الأشجار المحفورة يدوياً", "سجل التواقيع والأنساب"]
+    }
+  ],
+  "tech_academy_archetypes": [
+    { "code": "ARCH-TECH-01", "name_ar": "التيرمينال السيبراني والدفاع المنخفض", "name_en": "Cybernetic Offensive Security Terminal", "benchmark": "DEFCON / OverTheWire", "tool": "Live Web CLI Shell" },
+    { "code": "ARCH-TECH-02", "name_ar": "حلبة الخوارزميات ومحلل التعقيد الحسابي", "name_en": "Algorithm Arena & Visual Big-O Debugger", "benchmark": "NeetCode / AlgoExpert", "tool": "Visual Algorithm Stepper" },
+    { "code": "ARCH-TECH-03", "name_ar": "أكاديمية المهام والألعاب وشجرة المهارات", "name_en": "Peer-to-Peer Gamified Quest & RPG Skill Tree", "benchmark": "42 School / 01Edu", "tool": "RPG Constellation Tree" },
+    { "code": "ARCH-TECH-04", "name_ar": "الماستركلاس السينمائي ودفتر الشفرة", "name_en": "Video Masterclass & Interactive Code Transcript", "benchmark": "Frontend Masters / Egghead", "tool": "Synchronized Player & Code Runner" },
+    { "code": "ARCH-TECH-05", "name_ar": "زمالة المصادر المفتوحة وسجل المساهمات", "name_en": "Open-Source Fellowship & Monorepo PR Ledger", "benchmark": "Recurse Center / MLH", "tool": "Live Monorepo PR Stream" },
+    { "code": "ARCH-TECH-06", "name_ar": "مختبر أبحاث الذكاء الاصطناعي وحلبة النماذج", "name_en": "AI Research Paper Lab & Model Leaderboard Arena", "benchmark": "PapersWithCode / LMSYS", "tool": "ELO Model Arena & Voting" },
+    { "code": "ARCH-TECH-07", "name_ar": "معمل البوابات المنطقية والدوائر التفاعلي", "name_en": "Interactive Logic Gates & Hardware Circuit Sandbox", "benchmark": "Brilliant.org / Nand2Tetris", "tool": "Interactive Logic Gates Sim" },
+    { "code": "ARCH-TECH-08", "name_ar": "مسرعة التوظيف وحاسبة تقاسم الدخل (ISA)", "name_en": "Career Outcomes & Income Share (ISA) Accelerator", "benchmark": "BloomTech / Lambda", "tool": "ISA Repayment Calculator" },
+    { "code": "ARCH-TECH-09", "name_ar": "معمل الدفاتر البرمجية وتدريب الشبكات", "name_en": "Deep Learning Practical Jupyter Notebook", "benchmark": "Fast.ai / Kaggle", "tool": "Interactive Jupyter Notebook Cells" },
+    { "code": "ARCH-TECH-10", "name_ar": "مسرح الحوسبة المكانية والكمية 3D", "name_en": "3D Quantum & Spatial Computing Canvas Stage", "benchmark": "Apple Academy / Qiskit", "tool": "Three.js WebGL Quantum Mesh" }
+  ]
+}

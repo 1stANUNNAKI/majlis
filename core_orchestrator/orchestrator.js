@@ -1,17 +1,19 @@
 ﻿/**
  * 🎼 الأوركستريتر الأعلى ومجلس قادة الفرق — الإصدار الحركي المتقدم v12.0
- * متصل بخزينة التصاميم العالمية (DESIGN_VAULT) التي تحتوي على 180 نمطاً مرجعياً حياً.
+ * متصل بخزينة التصاميم العالمية (DESIGN_VAULT) ومحرك المداولة المعاكسة (Adversarial Chamber).
  */
 const fs = require('fs');
 const path = require('path');
 const { HumanQAEvaluationLoop } = require('../divisions/07_human_qa_learning/human_qa_engine');
 const { AgentHistoricalMemory } = require('../memory/agent_memory_engine');
+const { AdversarialChamber } = require('./adversarial_chamber');
 
 class SupremeOrchestrator {
   constructor(projectRoot = process.cwd()) {
     this.projectRoot = projectRoot;
     this.memory = new AgentHistoricalMemory(projectRoot);
     this.humanQA = new HumanQAEvaluationLoop({ projectRoot });
+    this.chamber = new AdversarialChamber(this, projectRoot);
     this.vaultPath = path.join(__dirname, '..', 'templates', 'PROJECT_CONSTITUTION', 'DESIGN_VAULT');
 
     this.divisions = {
@@ -74,13 +76,23 @@ class SupremeOrchestrator {
 
   async processUserDirective(userRequest) {
     console.log('[الأوركستريتر الأعلى] استلام الطلب: ' + userRequest);
-    console.log('[مجلس القادة] استدعاء خزينة التصاميم واختيار الأنماط القياسية الملائمة...');
 
+    // فحص تشغيل غرفة العمليات المعاكسة للمهام الحساسة
+    let chamberResult = null;
+    if (this.chamber.isHighStakes(userRequest)) {
+      console.log('⚡ [تحذير معماري]: تم تصنيف الطلب كعالي الخطورة الحوكمية (High-Stakes) — استدعاء غرفة العمليات المغلقة (MARP)...');
+      chamberResult = await this.chamber.runDeliberation(userRequest);
+      console.log(`   🏛️ الخبير المستدعى: ${chamberResult.specialist.name}`);
+      console.log(`   ⚖️ حكم المايسترو: ${chamberResult.verdict}`);
+    }
+
+    console.log('[مجلس القادة] استدعاء خزينة التصاميم واختيار الأنماط القياسية الملائمة...');
     const chosenArchetypes = this.selectDesignArchetypes(userRequest);
 
     const plan = {
       timestamp: new Date().toISOString(),
       request: userRequest,
+      chamberDeliberation: chamberResult,
       assignedDivisions: [],
       selectedArchetypes: chosenArchetypes
     };

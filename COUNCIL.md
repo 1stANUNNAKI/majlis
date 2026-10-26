@@ -7,70 +7,70 @@
 
 | Seat | Temperature | Reference skills |
 |---|---|---|
-| 🧠 هادي النواة · Hadi Core — Supreme Arbitrator · *المحكمة العليا للمجلس؛ حكمه يُنهي كل خلاف* | 0.1 | — |
-| 🎼 مايسترو هادي · Maestro Hadi — Strategic Orchestrator · *قائد الأربعين؛ يفكك الطلب ويوجّه كل مهمة لصاحبها* | 0.2 | `maestro-hadi-orchestration` `majlis-rules` |
-| 🧭 صائغ المنتج · Product Shaper · *يحوّل الأمنيات المتعبة إلى متطلبات حادة قابلة للاختبار* | 0.3 | — |
+| hadi-core.md · *المحكمة العليا للمجلس؛ حكمه يُنهي كل خلاف* | 0.1 | — |
+| hadi-maestro.md · *قائد الأربعين؛ يفكك الطلب ويوجّه كل مهمة لصاحبها* | 0.2 | `maestro-hadi-orchestration` `majlis-rules` |
+| product-shaper.md · *يحوّل الأمنيات المتعبة إلى متطلبات حادة قابلة للاختبار* | 0.3 | — |
 
 ## 🔍 Recon & Risk — الرصد والمخاطر (3)
 
 | Seat | Temperature | Reference skills |
 |---|---|---|
-| 🔎 محقق الحوادث · Incident Detective · *محقق الجذور بلا لوم؛ يعزل المتغير ويسمّي الآلية* | 0.2 | — |
-| 🔍 راصد · Rased — Codebase Scout · *عيون المجلس؛ يقرأ الكود قبل أن يلمسه أحد ولا يستطيع التعديل* | 0.2 | `intent-observer-audit360` |
-| 🕵️‍♂️ مقيّم المخاطر · Risk Assessor · *يسعّر الخطر قبل أن تدفع ثمنه بأدلة لا بانطباعات* | 0.25 | `risk-assessor-feasibility` |
+| incident-detective.md · *محقق الجذور بلا لوم؛ يعزل المتغير ويسمّي الآلية* | 0.2 | — |
+| rased-explorer.md · *عيون المجلس؛ يقرأ الكود قبل أن يلمسه أحد ولا يستطيع التعديل* | 0.2 | `intent-observer-audit360` |
+| risk-assessor.md · *يسعّر الخطر قبل أن تدفع ثمنه بأدلة لا بانطباعات* | 0.25 | `risk-assessor-feasibility` |
 
 ## ⚙️ Builders — الهندسة (10)
 
 | Seat | Temperature | Reference skills |
 |---|---|---|
-| 🔄 آلي الإنتاج · CI/CD Automator · *خطوط تفشل بصوت عالٍ وتسليم بأمان وتراجع مجرَّب* | 0.2 | `cicd-automation-deploy` `wrangler` |
-| 📊 مهندس البيانات · Data Engineer · *موجّه ثلاثٍ وعشرين قاعدة بيانات علمية بمصادر موثقة* | 0.2 | — |
-| 🗄️ ناظم البيانات · Data Modeler · *مخططات لن تلعنها بعد سنتين مع هجرات آمنة* | 0.2 | `data-modeler-schema` |
-| 📦 مدير الاعتمادات · Dependency Manager · *يقفل الثغرات في الاعتمادات قبل أن تنشرها CVEs* | 0.2 | `lightweight-dep-manager` `uv` |
-| ⚙️ عماد درع الـAPI · Emad — Backend & API Builder · *يبني خلفيات تصمد أمام المهاجمين وقمم الحركة* | 0.2 | `backend-api-shield-services` |
-| 📐 معمار التكامل · Integrative Architect · *مهندس حديث الأنظمة بالعقود أولاً لا بالأمنيات* | 0.25 | `integrative-architect-docs` |
-| 💻 فارس الحركة · Motion Coder · *فيديو برمجي محدد الحتمية يُعاد توليده بأمر واحد* | 0.25 | `remotion-video-engine` `explode-animation-skill` |
-| 🚢 مدير الإصدار · Release Manager · *لا إصدار بلا سجل حقيقي وتراجع جرِّب فعلاً* | 0.2 | — |
-| 🧪 عازل التجارب · Sandbox Isolator · *يجري الخطير حيث لا يمكن أن يؤذي شيئاً* | 0.25 | `isolated-sandbox-environment` |
-| 🔀 مُقَسِّم التدفقات · Stream Partitioner · *حيث ينفجر الرام عنده يتحول إلى تيار* | 0.2 | `stream-partitioner-bigdata` |
+| cicd-automator.md · *خطوط تفشل بصوت عالٍ وتسليم بأمان وتراجع مجرَّب* | 0.2 | `cicd-automation-deploy` `wrangler` |
+| data-engineer.md · *موجّه ثلاثٍ وعشرين قاعدة بيانات علمية بمصادر موثقة* | 0.2 | — |
+| data-modeler.md · *مخططات لن تلعنها بعد سنتين مع هجرات آمنة* | 0.2 | `data-modeler-schema` |
+| dep-manager.md · *يقفل الثغرات في الاعتمادات قبل أن تنشرها CVEs* | 0.2 | `lightweight-dep-manager` `uv` |
+| emad-api-shield.md · *يبني خلفيات تصمد أمام المهاجمين وقمم الحركة* | 0.2 | `backend-api-shield-services` |
+| integrative-architect.md · *مهندس حديث الأنظمة بالعقود أولاً لا بالأمنيات* | 0.25 | `integrative-architect-docs` |
+| motion-coder.md · *فيديو برمجي محدد الحتمية يُعاد توليده بأمر واحد* | 0.25 | `remotion-video-engine` `explode-animation-skill` |
+| release-manager.md · *لا إصدار بلا سجل حقيقي وتراجع جرِّب فعلاً* | 0.2 | — |
+| sandbox-isolator.md · *يجري الخطير حيث لا يمكن أن يؤذي شيئاً* | 0.25 | `isolated-sandbox-environment` |
+| stream-partitioner.md · *حيث ينفجر الرام عنده يتحول إلى تيار* | 0.2 | `stream-partitioner-bigdata` |
 
 ## 🚦 Gates — QA · Security · Code — البوابات (7)
 
 | Seat | Temperature | Reference skills |
 |---|---|---|
-| ♿ مدقق الوصول · A11y Auditor · *إن لم يصل إليه لوحة مفاتيح وقارئ شاشة فهو معطوب* | 0.2 | — |
-| 🎯 باهر · Baher — QA Gatekeeper · *لا يقبل إلا دليل تشغيل خام؛ مشاعره ليست دليلاً* | 0.15 | `qa-automated-tester-unit` `k6-load-testing` |
-| ✨ منقّح الكود · Code Polisher · *صقل رباعي يحفظ السلوك بايتاً بايتاً ببرهان الاختبارات* | 0.25 | — |
-| 🧼 نظيف · Nadif — Clean Code Gatekeeper · *يراجع كخبير يكره الطرق المختصرة ولديه حق الإيقاع* | 0.2 | `security-clean-code-auditor` |
-| ⚡ مدقق الأداء · Perf Auditor · *المئين 95 أو لم يحدث شيء؛ أرقام لا صفات* | 0.2 | `k6-load-testing` `web-perf` |
-| 🛡️ سريم · Sareem — Security Gatekeeper · *البوابة الحمراء؛ حكمه ثنائي ولا أحد يلتف عليه* | 0.15 | `trufflehog-secret-scanner` `nuclei-security-auditor` `owasp-zap-api-shield` |
-| ⚗️ مهندس الاختبار · Test Engineer · *اختبارات بإطار مشروعك هو لا بإطار غيره المفضل* | 0.2 | — |
+| a11y-auditor.md · *إن لم يصل إليه لوحة مفاتيح وقارئ شاشة فهو معطوب* | 0.2 | — |
+| baher-qa.md · *لا يقبل إلا دليل تشغيل خام؛ مشاعره ليست دليلاً* | 0.15 | `qa-automated-tester-unit` `k6-load-testing` |
+| code-polisher.md · *صقل رباعي يحفظ السلوك بايتاً بايتاً ببرهان الاختبارات* | 0.25 | — |
+| nadif-clean-code.md · *يراجع كخبير يكره الطرق المختصرة ولديه حق الإيقاع* | 0.2 | `security-clean-code-auditor` |
+| perf-auditor.md · *المئين 95 أو لم يحدث شيء؛ أرقام لا صفات* | 0.2 | `k6-load-testing` `web-perf` |
+| sareem-security.md · *البوابة الحمراء؛ حكمه ثنائي ولا أحد يلتف عليه* | 0.15 | `trufflehog-secret-scanner` `nuclei-security-auditor` `owasp-zap-api-shield` |
+| test-engineer.md · *اختبارات بإطار مشروعك هو لا بإطار غيره المفضل* | 0.2 | — |
 
 ## 🎨 Experience & Identity — التجربة والهوية (8)
 
 | Seat | Temperature | Reference skills |
 |---|---|---|
-| 📈 بيان · Bayan — Visual Explainer · *مخططات تطابق الواقع وتُقرأ بلا صداع* | 0.3 | `visual-diagrammer-mermaid` |
-| 👑 حارس العلامة · Brand Guardian · *صوت العلامة متسق حتى في رسائل الأخطاء* | 0.3 | — |
-| 🎨 المخرج إلهام · Cinematic Director · *يقود الإنتاج المرئي من القوس الشعوري إلى آخر قص* | 0.3 | — |
-| 🖌️ سيّد التصميم · Design System Master · *لغة بصرية واحدة بتوكنز دلالية في كل سطح* | 0.25 | `design-system-master-hsl` |
-| 🚀 محلل النمو · Growth Analyst · *قمعات تُقاس قبل الحكم والفرضية المقتولة إنجاز* | 0.3 | — |
-| 🖨️ ناشر الطباعة · Print Publisher · *ملفات تقبلها المطابع دون مكالمة استيضاح* | 0.25 | `vector-print-publisher-pdf` `pdf-scan-layer-cleaner` |
-| 📱 مهندس التجاوب · Responsive Layout Engineer · *لم تنجُ أمامه شاشة مكسورة ولا نقطة لمس صغيرة* | 0.2 | `responsive-layout-engine` |
-| 🔬 باحث التجربة · UX Researcher · *يحسم خلافات التجربة بالدليل لا بالأقدمية* | 0.3 | — |
+| bayan-diagrams.md · *مخططات تطابق الواقع وتُقرأ بلا صداع* | 0.3 | `visual-diagrammer-mermaid` |
+| brand-guardian.md · *صوت العلامة متسق حتى في رسائل الأخطاء* | 0.3 | — |
+| cinematic-director.md · *يقود الإنتاج المرئي من القوس الشعوري إلى آخر قص* | 0.3 | — |
+| design-system-master.md · *لغة بصرية واحدة بتوكنز دلالية في كل سطح* | 0.25 | `design-system-master-hsl` |
+| growth-analyst.md · *قمعات تُقاس قبل الحكم والفرضية المقتولة إنجاز* | 0.3 | — |
+| print-publisher.md · *ملفات تقبلها المطابع دون مكالمة استيضاح* | 0.25 | `vector-print-publisher-pdf` `pdf-scan-layer-cleaner` |
+| responsive-layout.md · *لم تنجُ أمامه شاشة مكسورة ولا نقطة لمس صغيرة* | 0.2 | `responsive-layout-engine` |
+| ux-researcher.md · *يحسم خلافات التجربة بالدليل لا بالأقدمية* | 0.3 | — |
 
 ## 📚 Knowledge & Memory — المعرفة والذاكرة (9)
 
 | Seat | Temperature | Reference skills |
 |---|---|---|
-| 🐣 نسّاج الوكلاء · Agent Weaver · *يوظّف مقعداً جديداً في المجلس عندما يثبت الفراغ* | 0.25 | `agent-weaver-builder` `skill-creator` |
-| 📣 بَليغ · Balegh — Technical Writer · *توثيق ثنائي اللغة من الفروقات الحقيقية لا الحلم* | 0.3 | — |
-| 📚 وصي السياق · Context Steward · *أقصى إشارة من كل توكن تدفع ثمنه* | 0.25 | — |
-| 🧠 حكيم · Hakim — Inner Learner · *يحوّل الألم إلى أنماط عملية بشرط تفعيل واضح* | 0.25 | `inner-learner-feedback` |
-| 🧰 مبتكر · Mubtakir — Tool Hunter · *يبحث أولاً ويبني أخيراً؛ لا اختراع لما هو موجود* | 0.3 | `tool-innovator-skill-fetcher` `find-skills` |
-| 🗂️ وصي المحفظة · Portfolio Steward · *لوحة صحّة لكل مشاريع المجلس بلا تجميل* | 0.25 | — |
-| 🪄 حدّاد الأوامر · Prompt Smith · *يطاوع أوامر تصمد في الإنتاج بعقود مخرجات* | 0.3 | — |
-| 📝 سجيل · Sajeel — Chronicler · *سجل زمني ملحق فقط؛ ما كتبه لا يعاد كتابته* | 0.2 | `chronicle-logger-timestamp` |
-| 🎙️ مهندس الصوت · Voice Engineer · *تعليق صوتي بحقوق نظيفة وأمر إعادة توليد* | 0.25 | — |
+| agent-weaver.md · *يوظّف مقعداً جديداً في المجلس عندما يثبت الفراغ* | 0.25 | `agent-weaver-builder` `skill-creator` |
+| balegh-docs.md · *توثيق ثنائي اللغة من الفروقات الحقيقية لا الحلم* | 0.3 | — |
+| context-steward.md · *أقصى إشارة من كل توكن تدفع ثمنه* | 0.25 | — |
+| hakim-mentor.md · *يحوّل الألم إلى أنماط عملية بشرط تفعيل واضح* | 0.25 | `inner-learner-feedback` |
+| mubtakir-tools.md · *يبحث أولاً ويبني أخيراً؛ لا اختراع لما هو موجود* | 0.3 | `tool-innovator-skill-fetcher` `find-skills` |
+| portfolio-steward.md · *لوحة صحّة لكل مشاريع المجلس بلا تجميل* | 0.25 | — |
+| prompt-smith.md · *يطاوع أوامر تصمد في الإنتاج بعقود مخرجات* | 0.3 | — |
+| sajeel-logger.md · *سجل زمني ملحق فقط؛ ما كتبه لا يعاد كتابته* | 0.2 | `chronicle-logger-timestamp` |
+| voice-engineer.md · *تعليق صوتي بحقوق نظيفة وأمر إعادة توليد* | 0.25 | — |
 
 **Total seats: 40**

@@ -22,6 +22,7 @@ if (!fs.existsSync(path.join(PKG, 'VERSION.txt')) && fs.existsSync(path.join(PKG
 }
 const HOME = os.homedir();
 const VERSION = fs.readFileSync(path.join(PKG, 'VERSION.txt'), 'utf8').trim();
+const STABLE_MAJLIS = path.join(HOME, '.majlis');
 const NAME_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 const EXCLUDE = new Set(['science_skills_common']);
 const UTF8 = 'utf8';
@@ -46,6 +47,23 @@ function normalizeName(raw) {
 }
 function mkdirp(p) { fs.mkdirSync(p, { recursive: true }); }
 function wf(p, content) { mkdirp(path.dirname(p)); fs.writeFileSync(p, content, UTF8); }
+
+function ensureStableMajlis() {
+  mkdirp(STABLE_MAJLIS);
+  for (const f of ['AGENTS.md', 'VERSION.txt', 'MAJLIS.GLOBAL.md']) {
+    const src = path.join(PKG, f);
+    if (fs.existsSync(src)) fs.copyFileSync(src, path.join(STABLE_MAJLIS, f));
+  }
+  const tmplDst = path.join(STABLE_MAJLIS, 'templates');
+  mkdirp(tmplDst);
+  const tmplSrc = path.join(PKG, 'templates');
+  if (fs.existsSync(tmplSrc)) {
+    for (const f of fs.readdirSync(tmplSrc)) {
+      const srcF = path.join(tmplSrc, f);
+      if (fs.statSync(srcF).isFile()) fs.copyFileSync(srcF, path.join(tmplDst, f));
+    }
+  }
+}
 
 // ---- build normalized skill library ----
 function buildLibrary() {
@@ -73,16 +91,15 @@ function buildLibrary() {
 
 const CLAUDE_TOOLS = {
   'hadi-maestro': 'Task, Bash, Read, Grep, Glob',
-  'rased-explorer': 'Bash, Read, Grep, Glob',
-  'sajeel-logger': 'Bash, Read, Edit, Write',
-  'hakim-mentor': 'Grep, Glob, Read, Edit, Write',
-  'bayan-diagrams': 'Glob, Read, Write',
-  'emad-api-shield': '',
+  'rased-explorer': 'Read, Grep, Glob',
+  'sareem-security': 'Bash, Read, Grep, Glob',
   'baher-qa': 'Bash, Read, Grep, Glob',
-  'sareem-security': 'WebSearch, WebFetch, Bash, Glob, Read, Grep',
-  'nadif-clean-code': 'Bash, Read, Grep, Glob',
-  'mubtakir-tools': 'WebSearch, WebFetch, Bash, Read, Edit, Write',
-  'balegh-docs': 'Glob, Grep, Read, Edit, Write'
+  'nadif-clean-code': 'Read, Edit, Replace, Grep, Glob',
+  'bayan-diagrams': 'Read, Edit, Replace, Write',
+  'balegh-docs': 'Read, Edit, Replace, Write, Grep, Glob',
+  'emad-api-shield': 'Task, Bash, Read, Edit, Replace, Write, Grep, Glob',
+  'data-modeler': 'Read, Edit, Replace, Write, Grep, Glob',
+  'integrative-architect': 'Task, Read, Edit, Replace, Write, Grep, Glob'
 };
 
 function readAgents() {
@@ -100,9 +117,10 @@ function listCommands() {
   return fs.readdirSync(path.join(PKG, 'commands')).filter(f => f.startsWith('majlis-') && f.endsWith('.md'));
 }
 function pointerText() {
-  const master = path.join(PKG, 'AGENTS.md');
-  const coreDoc = path.join(PKG, 'templates', 'MAJLIS_CORE_DIRECTIVES.md');
-  const corePrompt = path.join(PKG, 'templates', 'MAJLIS_CORE_SYSTEM.prompt');
+  ensureStableMajlis();
+  const master = path.join(STABLE_MAJLIS, 'AGENTS.md');
+  const coreDoc = path.join(STABLE_MAJLIS, 'templates', 'MAJLIS_CORE_DIRECTIVES.md');
+  const corePrompt = path.join(STABLE_MAJLIS, 'templates', 'MAJLIS_CORE_SYSTEM.prompt');
   return fs.readFileSync(path.join(PKG, 'templates', 'pointer.md'), UTF8)
     .replace(/\{MASTER\}/g, master)
     .replace(/\{CORE_DIRECTIVES\}/g, coreDoc)
@@ -119,6 +137,7 @@ function deployCommands(dest, wrapCodex) { for (const f of listCommands()) { let
 
 // ---- main ----
 console.log(`\n=== MAJLIS Council Installer v${VERSION} ===`);
+ensureStableMajlis();
 global.__lib = buildLibrary();
 const agents = readAgents();
 const targets = ['opencode', 'claude', 'codex', 'universal', 'gemini'].filter(t => flag('--' + t));
@@ -153,14 +172,29 @@ if (all || targets.includes('codex')) {
 if (all || targets.includes('gemini')) {
   const d = path.join(HOME, '.gemini', 'commands', 'majlis');
   ok(`gemini    : ${deployCommands(d)} commands (/majlis:*) -> ${d}`);
+  const geminiConfig = path.join(HOME, '.gemini', 'config');
+  if (fs.existsSync(path.join(HOME, '.gemini'))) {
+    deploySkills(path.join(geminiConfig, 'skills'));
+    deployCommands(path.join(geminiConfig, 'commands', 'majlis'));
+    const shortRule = fs.readFileSync(path.join(PKG, 'templates', 'project-rules.md'), UTF8)
+      .replace(/\{MASTER\}/g, path.join(STABLE_MAJLIS, 'AGENTS.md'))
+      .replace(/\{CORE_DIRECTIVES\}/g, path.join(STABLE_MAJLIS, 'templates', 'MAJLIS_CORE_DIRECTIVES.md'));
+    wf(path.join(geminiConfig, 'rules', 'majlis.md'), shortRule);
+    ok(`gemini cfg: deployed skills, commands & rules -> ${geminiConfig}`);
+  }
 }
 if (scaffoldArgIdx !== -1 && args[scaffoldArgIdx + 1]) {
   const proj = path.resolve(args[scaffoldArgIdx + 1]);
+  const projMajlis = path.join(proj, '.majlis');
+  mkdirp(projMajlis);
+  if (fs.existsSync(path.join(PKG, 'AGENTS.md'))) {
+    fs.copyFileSync(path.join(PKG, 'AGENTS.md'), path.join(projMajlis, 'AGENTS.md'));
+  }
   const short = fs.readFileSync(path.join(PKG, 'templates', 'project-rules.md'), UTF8)
-    .replace(/\{MASTER\}/g, path.join(PKG, 'AGENTS.md'))
-    .replace(/\{CORE_DIRECTIVES\}/g, path.join(PKG, 'templates', 'MAJLIS_CORE_DIRECTIVES.md'));
+    .replace(/\{MASTER\}/g, path.join(projMajlis, 'AGENTS.md'))
+    .replace(/\{CORE_DIRECTIVES\}/g, path.join(STABLE_MAJLIS, 'templates', 'MAJLIS_CORE_DIRECTIVES.md'));
   [['AGENTS.md', short], ['CLAUDE.md', 'See AGENTS.md - it is binding.\n\n' + short], ['GEMINI.md', 'See AGENTS.md - it is binding.\n\n' + short], ['.github/copilot-instructions.md', short], ['.cursor/rules/majlis.mdc', '---\ndescription: Majlis Council rules (always apply)\nglobs:\nalwaysApply: true\n---\n\n' + short], ['.agent/rules/majlis-core.md', short], ['.windsurf/rules/majlis.md', short]].forEach(([rel, c]) => wf(path.join(proj, rel), c));
-  ok(`scaffold   : 7 rule files -> ${proj}`);
+  ok(`scaffold   : 7 rule files + self-contained .majlis/ -> ${proj}`);
 }
 
 console.log('');

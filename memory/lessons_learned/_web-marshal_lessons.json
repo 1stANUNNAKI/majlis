@@ -15,7 +15,7 @@
     "errorPattern": "Stripe connection timeout",
     "rootCause": "Missing retry-after header",
     "successfulFix": "Added exponential backoff 500ms",
-    "repetitionCount": 5,
-    "lastSeen": "2026-09-14T06:10:26.051Z"
+    "repetitionCount": 6,
+    "lastSeen": "2026-10-26T19:45:32.920Z"
   }
 ]

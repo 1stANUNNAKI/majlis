@@ -9,6 +9,7 @@ permission:
   edit: ask
   bash:
     "*": ask
+    "pnpm *": allow
     "npm *": allow
     "node *": allow
     "git add*": allow

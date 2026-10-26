@@ -1,11 +1,11 @@
 ﻿/**
- * ⚡ محرك التنفيذ الآلي الموحد — المجلس المحسن
- * One-Command Pipeline Runner
- * Usage: node majlis.js "الطلب" OR node run.js
+ * ⚡ محرك التنفيذ الآلي الموحد — المجلس المحسن v9.4.0
+ * One-Command Pipeline Runner with Adversarial Deliberation Engine
+ * Usage: node run.js "الطلب" OR node run.js --deliberate "معمارية النظام"
  */
 const fs = require('fs');
 const path = require('path');
-const { SupremeOrchestrator } = require('./.majlis_engine/core_orchestrator/orchestrator');
+const { SupremeOrchestrator } = require('./core_orchestrator/orchestrator');
 
 class MajlisPipelineRunner {
   constructor(projectRoot = process.cwd()) {
@@ -21,6 +21,25 @@ class MajlisPipelineRunner {
     this.runLog.push({ timestamp, phase, message });
   }
 
+  async runDeliberationOnly(task) {
+    console.log('╔════════════════════════════════════════════════════════════════════════╗');
+    console.log('║ 🏛️  غرفة العمليات المغلقة — بروتوكول المداولة المعاكسة الصارم (MARP) ║');
+    console.log('╚════════════════════════════════════════════════════════════════════════╝\n');
+    const result = await this.orch.chamber.runDeliberation(task);
+    console.log(`📌 المهمة قيد المداولة: "${task}"`);
+    console.log(`🔍 الخبير المستدعى: ${result.specialist.name} (${result.specialist.title})\n`);
+    
+    result.rounds.forEach(r => {
+      console.log(`------------------------------------------------------------------------`);
+      console.log(`🗣️  ${r.speaker} [${r.timestamp}]:`);
+      console.log(`   ${r.text}`);
+    });
+    console.log(`\n========================================================================`);
+    console.log(`❇️ الحكم النهائي للمايسترو: ${result.verdict}`);
+    console.log(`========================================================================\n`);
+    return result;
+  }
+
   async executeUnifiedPipeline(userRequest) {
     console.log('╔════════════════════════════════════════════════════════════════════════╗');
     console.log('║ 🏛️  انطلاق المحرك الموحد لنظام "المجلس - نسخة محسنة" (MAJLIS Pipeline) ║');
@@ -31,7 +50,7 @@ class MajlisPipelineRunner {
     const plan = await this.orch.processUserDirective(userRequest);
 
     // 2. مرحلة تفعيل دستور المشروع
-    this.logStep('2. دستور المشروع', 'التحقق من جاهزية الوثائق الست وقواعد الأمان والبيانات...');
+    this.logStep('2. دستور المشروع', 'التحقق من جاهزية الوثائق وقواعد الأمان والبيانات...');
     if (!fs.existsSync(this.constitutionDir)) {
       console.warn('   ⚠️ مجلد الدستور غير موجود، جاري تأسيسه فوراً...');
     } else {
@@ -43,15 +62,17 @@ class MajlisPipelineRunner {
     this.logStep('3. الذاكرة والتعلم الذاتي', 'فحص السجلات التاريخية للدروس المستفادة ذات الصلة بالطلب...');
     const relevantLessons = [];
     plan.assignedDivisions.forEach(div => {
-      const chief = this.orch.divisions[div].chief;
-      const lessons = this.orch.memory.queryLessons(chief);
-      if (lessons.length > 0) relevantLessons.push(...lessons);
+      if (this.orch.divisions[div]) {
+        const chief = this.orch.divisions[div].chief;
+        const lessons = this.orch.memory.queryLessons(chief);
+        if (lessons && lessons.length > 0) relevantLessons.push(...lessons);
+      }
     });
     console.log(`   🧠 تم استدعاء ${relevantLessons.length} درساً سابقاً لتفادي الأخطاء المتكررة.`);
 
     // 4. مرحلة البناء الهندسي والتنفيذ
     this.logStep('4. التنفيذ الهندسي', 'إطلاق الفرق التخصصية لبناء وتطوير مخرجات المهمة...');
-    console.log(`   🛠️ الفرق النشطة في خط الإنتاج: ${plan.assignedDivisions.map(d => this.orch.divisions[d].name).join(' | ')}`);
+    console.log(`   🛠️ الفرق النشطة في خط الإنتاج: ${plan.assignedDivisions.map(d => this.orch.divisions[d] ? this.orch.divisions[d].name : d).join(' | ')}`);
 
     // 5. بوابة الفحص البشري الآلي والتصحيح الذاتي (حلقة الـ 5 محاولات)
     this.logStep('5. الفحص البشري التفاعلي', 'بدء فحص الواجهات زراً بزر وعنصراً بعنصر وتطبيق حلقة المعالجة...');
@@ -59,7 +80,6 @@ class MajlisPipelineRunner {
     let simulatedFixCount = 0;
     const qaResult = await this.orch.humanQA.executeLoop(
       async (attempt) => {
-        // محاكاة تدقيق عناصر حقيقي
         if (attempt === 1 && userRequest.includes('متجر')) {
           return { passed: false, element: 'زر عربة التسوق #cart-btn', error: 'عدم تحديث العداد عند النقر' };
         }
@@ -88,8 +108,16 @@ class MajlisPipelineRunner {
 // تشغيل مباشر من سطر الأوامر
 if (require.main === module) {
   const runner = new MajlisPipelineRunner(__dirname);
-  const prompt = process.argv.slice(2).join(' ') || 'بناء وتدقيق الواجهة وفق دستور المشروع';
-  runner.executeUnifiedPipeline(prompt);
+  const args = process.argv.slice(2);
+  const isDeliberate = args.includes('--deliberate') || args.includes('--chamber');
+  const cleanArgs = args.filter(a => a !== '--deliberate' && a !== '--chamber');
+  const prompt = cleanArgs.join(' ') || 'بناء وتدقيق الواجهة وفق دستور المشروع';
+
+  if (isDeliberate) {
+    runner.runDeliberationOnly(prompt);
+  } else {
+    runner.executeUnifiedPipeline(prompt);
+  }
 }
 
 module.exports = { MajlisPipelineRunner };

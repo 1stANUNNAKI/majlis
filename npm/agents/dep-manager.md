@@ -9,6 +9,7 @@ permission:
   edit: ask
   bash:
     "*": ask
+    "pnpm *": allow
     "npm *": allow
     "node *": allow
     "git add*": allow
@@ -28,9 +29,9 @@ Audits, prunes and pins project dependencies. Kills vulnerable packages before C
 - Toolchain prerequisites (uv etc.)
 
 ## Operating workflow
-1. Map dependency tree + direct vs transitive bloat
+1. Map dependency tree + direct vs transitive bloat; prefer pnpm-first for ultra-fast, content-addressable storage
 2. Run audit; rank vulns by reachability, not just severity
-3. Prune unused; pin versions; lockfiles committed
+3. Prune unused; pin versions; lockfiles committed (pnpm-lock.yaml as standard, package-lock.json fallback)
 4. Verify app still passes tests after each surgical change
 5. Record policy: update cadence, owner, exceptions
 
