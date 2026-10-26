@@ -210,40 +210,35 @@ To eliminate friction and avoid unnecessary bureaucracy, Majlis operates on a **
 ## 🔄 The Pipeline & Red Gate · خط الإنتاج والبوابة الحمراء
 
 ```mermaid
-flowchart LR
-    subgraph PLAN["🗺️ 1 · Strategy & Plan"]
-        A["📥 Request"] --> B["/majlis:start"]
-        B --> C["/majlis:plan n"]
-        C --> D{"⚖️ High-Stakes?"}
-        D -->|YES| MARP["⚔️ /majlis:deliberate<br/>Adversarial Chamber"]
-        D -->|NO| R["🔍 Rased Recon"]
+flowchart TD
+    subgraph PlanPhase ["1 · Strategy and Planning"]
+        A["Incoming Directive"] --> B["Command: /majlis:start"]
+        B --> C["Wave Decomposition: /majlis:plan"]
+        C --> D{"High-Stakes Architecture?"}
+        D -->|Yes| MARP["Adversarial Chamber: /majlis:deliberate"]
+        D -->|No| R["Scout Recon: @rased-explorer"]
         MARP --> R
     end
-    subgraph EXEC["⚙️ 2 · Execute & Build"]
-        R --> E["/majlis:build"]
-        E --> F["🛠️ Council Agents<br/>Atomic Commits"]
+
+    subgraph ExecPhase ["2 · Parallel Execution"]
+        R --> E["Atomic Execution: /majlis:build"]
+        E --> F["Specialized Council Agents"]
     end
-    subgraph GATES["🚦 3 · Strict Red Gates"]
-        F --> Q{"🎯 QA Gate<br/>lint · types · tests"}
-        Q -->|fail| F
-        Q -->|pass| S{"🛡️ Security Gate<br/>TruffleHog · OWASP"}
-        S -->|FAIL| F
-        S -->|pass| N{"🧼 Clean-Code<br/>anti-sycophancy"}
-        N -->|BLOCKER| F
+
+    subgraph GatePhase ["3 · Strict Red Gates - All Must Pass"]
+        F --> Q{"QA Gate: @baher-qa"}
+        Q -->|Pass| S{"Security Gate: @sareem-security"}
+        Q -->|Fail| F
+        S -->|Pass| N{"Clean-Code Gate: @nadif-clean-code"}
+        S -->|Fail| F
     end
-    subgraph MEM["📚 4 · Ship & Retrospect"]
-        N -->|pass| L["📝 CHRONICLE.md"]
-        L --> SHIP["✅ SHIP RELEASE"]
-        SHIP -.-> H["🧠 LESSONS.md"]
+
+    subgraph ShipPhase ["4 · Delivery and Memory"]
+        N -->|Pass| L["Audit Logging: CHRONICLE.md"]
+        N -->|Blocker| F
+        L --> SHIP["SHIP PRODUCTION RELEASE"]
+        SHIP --> H["Distilled Lessons: LESSONS.md"]
     end
-    classDef plan fill:#12203a,stroke:#7c9eff,color:#e8edf7
-    classDef exec fill:#0f2418,stroke:#3ddc97,color:#e8edf7
-    classDef gate fill:#2a1218,stroke:#ff5d73,color:#e8edf7
-    classDef mem fill:#241a08,stroke:#e8b64c,color:#e8edf7
-    class A,B,C,D,MARP,R plan
-    class E,F exec
-    class Q,S,N gate
-    class L,SHIP,H mem
 ```
 
 ### 🚨 The Signature Red Gate
